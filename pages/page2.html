@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Belle Fleur Savage</title>
+    <link rel="stylesheet" href="../css/page2.css">
+    <link rel="icon" type="image/png" href="/Img/Flor amarilla 1.png">
+</head>
+
+<body>
+
+    <div class="escenario">
+
+        <div class="containerPadre">
+            <div class="containerHijo">
+                <h2 class="Titulo">La belle fleur Savage</h2>
+                <div class="scrolldiv">
+                    <p>Bueno siguiendo con el detalle ultimamente he escuchado bastante a Huron y la verdad si me ha encantado y tambien me recuerda a ti en especifico esta cancion que traducido al español significa la bella flor silvestre y claro esto me recuerda cuando me contabas que salias bastante a pueblitos, volcanes, playas y asi.
+                    Y para mi eres tu esa bella flor silvestre que vive para ver el sol, sentir el viento y beber la lluvia.
+                    Me encantaria compartir tripsitos asi, estoy seguro que la pasariamos bien y que no parariamos de reirnos.
+                    </p>
+
+                    <br>
+
+                    <p>Para mi eres alguien muy linda vane como esa flor que quiero encontrar en medio del bosque, cuidarla y como dice la cancion ningun paisaje se iguala a su belleza. Pequeño parentesis, escucha luego por separado las canciones pq solo he puesto una parte JAKSDJASK.</p>
+
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="Previus">
+            <a href="../index.html">
+                <img class="Icon" src="/Img/nextW.png" alt="">
+            </a>
+        </div>
+
+        <img class="BosqueIzquierda" src="../Img/Bosque 1.png" alt="">
+        <img class="BosqueSuelo" src="../Img/Bosque suelo.png" alt="">
+        <img class="Cascada" src="../Img/Cascada.png" alt="">
+        <img class="Palomas" src="../Img/Palomas.png" alt="">
+        <img class="DiscoHuron" src="../Img/DiscoHuron.png" alt="">
+
+        <div class="Next">
+            <a href="/pages/page3.html">
+                <img class="Icon" src="/Img/nextw.png" alt="">
+            </a>
+        </div>
+
+
+
+    </div>
+
+    <audio id="cancion" autoplay>
+        <source src="/audio/La Belle Fleur Sauvage.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <button id="btnPlayStop" class="boton-audio">Play</button>
+
+    <script>
+
+        const cancion = document.getElementById('cancion');
+        const btnPlayStop = document.getElementById('btnPlayStop');
+
+        cancion.addEventListener('loadedmetadata', function () {
+            cancion.currentTime = 120;
+            cancion.play().catch(error => {
+                console.log("El navegador bloqueó el autoplay. Se necesita un clic del usuario.");
+            });
+        });
+
+        btnPlayStop.addEventListener('click', function () {
+            if (cancion.paused) {
+                cancion.play().then(() => {
+                    btnPlayStop.textContent = 'Pausa';
+                }).catch(error => {
+                    console.log("Error al reproducir:", error);
+                });
+            } else {
+                cancion.pause();
+                btnPlayStop.textContent = 'Play';
+            }
+        });
+
+
+        cancion.addEventListener('play', () => btnPlayStop.textContent = 'Pausa');
+        cancion.addEventListener('pause', () => btnPlayStop.textContent = 'Play');
+
+
+        function ajustarZoom() {
+            const escenario = document.querySelector('.escenario');
+
+            const anchoOriginal = 1280;
+            const altoOriginal = 832;
+
+            const escalaX = window.innerWidth / anchoOriginal;
+            const escalaY = window.innerHeight / altoOriginal;
+            const escala = Math.min(escalaX, escalaY);
+
+
+            escenario.style.transform = `translate(-50%, -50%) scale(${escala})`;
+        }
+
+        window.addEventListener('DOMContentLoaded', ajustarZoom);
+        window.addEventListener('resize', ajustarZoom);
+    </script>
+</body>
+
+</html>

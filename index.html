@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Believer</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" type="image/png" href="/Img/Flor amarilla 1.png">
+</head>
+
+<body>
+
+    <div class="escenario">
+
+        <div class="containerPadre">
+            <div class="containerHijo">
+                <h2 class="Titulo">Holaaa :D</h2>
+                <div class="scrolldiv">
+                    <p>Vaneeee para este 21 de septiembre que es dia de las flores amarillas quise hacerte un detalle.
+                    Se me ocurrio hacerte una pagina web como regalo con collage de canciones que van contigo o me recuerdan a ti y aprovechando que pues voy para ingeniero arme este detalle, de hecho empece el proceso creativo la semana pasada y bueno me puse a escuchar canciones e iba escogiendo las que incluiria y me quede con 4 con las que serian estos collage :D.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Tambien los collage tienen las canciones y el boton esta en esquina inferior derecha por si acaso no funciona el autoplay.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Bueno empezando con el regalo y la primera cancion es Miss Believer de TOP porque las primeras veces que hablabamos el tema de conversacion era de nuestros gustos musicales y entre ellos estaba Twenty One Pilots, recuerdo que tuvimos la idea que al salir ibamos a hacer el paso de lavish que hacen Josh y Tyler en los conciertos JAKSDJAS.
+    
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Y bueno con respecto a la cancion, hay un parte de la letra que dice "Oh miss believer my pretty weeper" y me recuerda a tu parte sentimental que tienes, que eres muy pasional, atenta, considerada, pasional y eso me encanta de ti.
+                        Aprecio bastante que tengas la confianza de compartir esa parte de ti conmigo y tambien escucharme compartiendo mi spam de mensajes contando mi dia, me encanta hablar contigo y siempre mi intencion va a ser que te sientas escuchada y tomada en cuenta :D.
+    
+                    </p>
+
+                    <br>
+                     
+                    <p>
+                        A y tambien al inicio de la cancion dice "Oh miss believer my pretty sleeper" y claramente me recuerda lo dormilona que eres AJSDAJSD cuando la vez que me contaste que te quedaste dormida con el cel en la mano.
+
+                    </p>
+
+                    <br>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+
+        <img class="ArbolDeNavidad" src="/Img/Arbol navidad.png" alt="">
+        <img class="NieveSuelo" src="/Img/Nieve suelo.png" alt="">
+        <img class="TJ" src="/Img/Twenty one pilots.png" alt="">
+        <img class="MunecoNieve" src="/Img/Muñeco de nieve.png" alt="">
+        <img class="Nube" src="/Img/Nubes.png" alt="">
+        <img class="Perrito" src="/Img/perrito.png" alt="">
+        <img class="Corazon" src="/Img/Corazones nieve.png" alt="">
+        <img class="DiscoTop" src="/Img/DiscoTop.png" alt="">
+
+        <div class="Next">
+            <a href="/pages/page2.html">
+                <img class="Icon" src="/Img/nextB.png" alt="">
+            </a>
+        </div>
+
+
+    </div>
+
+
+    <audio id="cancion" autoplay>
+        <source src="/audio/Oh Ms Believer.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <button id="btnPlayStop" class="boton-audio">Play</button>
+
+    <script>
+
+        const cancion = document.getElementById('cancion');
+        const btnPlayStop = document.getElementById('btnPlayStop');
+
+        cancion.addEventListener('loadedmetadata', function () {
+            cancion.currentTime = 118.5;
+            cancion.play().catch(error => {
+                console.log("El navegador bloqueó el autoplay. Se necesita un clic del usuario.");
+            });
+        });
+
+        btnPlayStop.addEventListener('click', function () {
+            if (cancion.paused) {
+                cancion.play().then(() => {
+                    btnPlayStop.textContent = 'Pausa';
+                }).catch(error => {
+                    console.log("Error al reproducir:", error);
+                });
+            } else {
+                cancion.pause();
+                btnPlayStop.textContent = 'Play';
+            }
+        });
+
+
+        cancion.addEventListener('play', () => btnPlayStop.textContent = 'Pausa');
+        cancion.addEventListener('pause', () => btnPlayStop.textContent = 'Play');
+
+
+        function ajustarZoom() {
+            const escenario = document.querySelector('.escenario');
+
+            const anchoOriginal = 1280;
+            const altoOriginal = 832;
+
+            const escalaX = window.innerWidth / anchoOriginal;
+            const escalaY = window.innerHeight / altoOriginal;
+            const escala = Math.min(escalaX, escalaY);
+
+
+            escenario.style.transform = `translate(-50%, -50%) scale(${escala})`;
+        }
+
+        window.addEventListener('DOMContentLoaded', ajustarZoom);
+        window.addEventListener('resize', ajustarZoom);
+    </script>
+</body>
+
+</html>

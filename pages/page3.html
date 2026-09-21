@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Child O Mine</title>
+    <link rel="stylesheet" href="../css/page3.css">
+    <link rel="icon" type="image/png" href="/Img/Flor amarilla 1.png">
+
+</head>
+
+<body>
+
+    <div class="escenario">
+
+        <div class="containerPadre">
+            <div class="containerHijo">
+                <h2 class="Titulo">Sweet Child o Mine</h2>
+                <div class="scrolldiv">
+                    <p> Espero que te este gustando el detalle :D, como no iba a incluir rock y mas un solo de guitarra por lo visto te gustan bastante y recordando lo que me contaste que querias tener un estilo mas rockero definitivamente esta cancion seria tuya y cuando te vea en persona que espero sea pronto JAKDJAS se que sonara esta cancion en mi cabeza.</p>
+                    
+                    <br>
+
+                    <p> Eres tan hermosa ocmo este solo de guitarra :D de hecho si va bastante el estilo rockero contigo y mas en el aspecto que te patina el coco JAAJAJAJ, pero suerte que tengo pista de sobra para eso.</p>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <div class="Previus">
+            <a href="/pages/page2.html">
+                <img class="Icon" src="/Img/nextW.png" alt="">
+            </a>
+        </div>
+
+        <img class="Gato" src="../Img/Gato.png" alt="">
+        <img class="Rayo" src="../Img/Rayos.png" alt="">
+        <img class="FondoSol" src="../Img/Fondo.png" alt="">
+        <img class="Musica" src="../Img/Musica.png" alt="">
+        <img class="Corazon" src="../Img/Corazon.png" alt="">
+        <img class="GNR" src="../Img/Guns and roses nikon.png" alt="">
+        <img class="GNRD" src="../Img/GunsNRosesDisco.png" alt="">
+
+        <div class="Next">
+            <a href="/pages/page4.html">
+                <img class="Icon" src="/Img/nextW.png" alt="">
+            </a>
+        </div>
+
+
+
+
+    </div>
+
+    <audio id="cancion" autoplay>
+        <source src="/audio/Guns N' Roses - Sweet Child O' Mine (Official Music Video).mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <button id="btnPlayStop" class="boton-audio">Play</button>
+
+    <script>
+
+        const cancion = document.getElementById('cancion');
+        const btnPlayStop = document.getElementById('btnPlayStop');
+
+        cancion.addEventListener('loadedmetadata', function () {
+            cancion.currentTime = 146;
+            cancion.play().catch(error => {
+                console.log("El navegador bloqueó el autoplay. Se necesita un clic del usuario.");
+            });
+        });
+
+        btnPlayStop.addEventListener('click', function () {
+            if (cancion.paused) {
+                cancion.play().then(() => {
+                    btnPlayStop.textContent = 'Pausa';
+                }).catch(error => {
+                    console.log("Error al reproducir:", error);
+                });
+            } else {
+                cancion.pause();
+                btnPlayStop.textContent = 'Play';
+            }
+        });
+
+
+        cancion.addEventListener('play', () => btnPlayStop.textContent = 'Pausa');
+        cancion.addEventListener('pause', () => btnPlayStop.textContent = 'Play');
+
+
+        function ajustarZoom() {
+            const escenario = document.querySelector('.escenario');
+
+            const anchoOriginal = 1280;
+            const altoOriginal = 832;
+
+            const escalaX = window.innerWidth / anchoOriginal;
+            const escalaY = window.innerHeight / altoOriginal;
+            const escala = Math.min(escalaX, escalaY);
+
+
+            escenario.style.transform = `translate(-50%, -50%) scale(${escala})`;
+        }
+
+        window.addEventListener('DOMContentLoaded', ajustarZoom);
+        window.addEventListener('resize', ajustarZoom);
+    </script>
+</body>
+
+</html>

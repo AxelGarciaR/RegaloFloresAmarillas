@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Tu</title>
+    <link rel="stylesheet" href="../css/page4.css">
+    <link rel="icon" type="image/png" href="/Img/Flor amarilla 1.png">
+</head>
+
+<body>
+
+    <div class="escenario">
+
+        <div class="containerPadre">
+            <div class="containerHijo">
+                <h2 class="Titulo">¡Flores amarillaaaas!</h2>
+                <div class="scrolldiv">
+                    <p> Espero que te haya gustado el detalle, se que no podria verte exactamente en este dia de las
+                        flores amarillas entonces quise hacer este detalle y creeme que hubiese querido darte un ramo en
+                        persona y pasar el dia contigo pero son dias dificiles para ti en los cuales te estas tomando tu
+                        tiempo y tambien que estoy enfermo pero por eso este detalle porque quiero hacerte sentir
+                        querida.
+                    </p>
+
+                    <br>
+
+                    <p>Y si vane si me sigues gustando y quiero seguirte conociendo de verdad y compartir historias
+                        junto a ti.</p>
+
+                    <br>
+
+                    <p>
+
+                        Y a lo que me refiero con conocerte es conocerte verdaderamente, del porque te gusta tal cosa,
+                        porque actuas de esta forma y de otra y llegar a conocerte hasta completar tus frases antes de
+                        que las digas sabes.
+                    </p>
+
+                    <br>
+
+                    <p>Y por eso elegi esta cancion para el final porque a mi no me gustan como tu, a mi me gustas tu y
+                        quiero seguir interesandome por tu cada dia porque no solamente me ha gustado el tiempo que
+                        hemos compartido si no que puedo ser como yo soy contigo y siento la confianza de parecer perico
+                        y contarte mi dia a dia y gracias tambien por permitirme ser parte de tu dia a dia tambien.</p>
+
+                    <br>
+
+                    <p>Y con esto termina el detalle, me siento afortunado de haberte conocido, de compartir este tiempo
+                        aunque
+                        sea de lejitos y espero que lo sigamos compartiendo asi como hemos planeado de que me compres mi
+                        peluche de pollo campero, que vaya a tu graduacion, que visite tu consultorio cuando te gradues
+                        y
+                        demas cositas que se nos van a ir ocurriendo JAJAJAJA</p>
+
+                    <br>
+
+                    <br>
+
+                    <p>Te quiere mucho, Axelito <3 </p>
+
+                            <br>
+
+                            <br>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="Previus">
+            <a href="/pages/page3.html">
+                <img class="Icon" src="/Img/nextB.png" alt="">
+            </a>
+        </div>
+
+        <img class="Beso" src="../Img/Pintura Beso.png" alt="">
+        <img class="FloresAmarillas" src="../Img/Flores amarillas.png" alt="">
+        <img class="Corazon" src="../Img/Corazon 2 .png" alt="">
+        <img class="FlorAmarilla" src="../Img/Flor amarilla 1.png" alt="">
+        <img class="Chica" src="../Img/Silueta.png" alt="">
+        <img class="Sol" src="../Img/Sol.png" alt="">
+        <img class="Atardecer" src="../Img/Atardecer.png" alt="">
+        <img class="DiscoLeon" src="../Img/DiscoLeon.png" alt="">
+
+
+
+
+    </div>
+
+    <audio id="cancion" autoplay>
+        <source src="/audio/León Larregui - Como Tú (Magic Music Box) (Video Oficial).mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <button id="btnPlayStop" class="boton-audio">Play</button>
+
+    <script>
+
+        const cancion = document.getElementById('cancion');
+        const btnPlayStop = document.getElementById('btnPlayStop');
+
+        cancion.addEventListener('loadedmetadata', function () {
+            cancion.currentTime = 36;
+            cancion.play().catch(error => {
+                console.log("El navegador bloqueó el autoplay. Se necesita un clic del usuario.");
+            });
+        });
+
+        btnPlayStop.addEventListener('click', function () {
+            if (cancion.paused) {
+                cancion.play().then(() => {
+                    btnPlayStop.textContent = 'Pausa';
+                }).catch(error => {
+                    console.log("Error al reproducir:", error);
+                });
+            } else {
+                cancion.pause();
+                btnPlayStop.textContent = 'Play';
+            }
+        });
+
+
+        cancion.addEventListener('play', () => btnPlayStop.textContent = 'Pausa');
+        cancion.addEventListener('pause', () => btnPlayStop.textContent = 'Play');
+
+        function ajustarZoom() {
+            const escenario = document.querySelector('.escenario');
+
+            const anchoOriginal = 1280;
+            const altoOriginal = 832;
+
+            const escalaX = window.innerWidth / anchoOriginal;
+            const escalaY = window.innerHeight / altoOriginal;
+            const escala = Math.min(escalaX, escalaY);
+
+
+            escenario.style.transform = `translate(-50%, -50%) scale(${escala})`;
+        }
+
+        window.addEventListener('DOMContentLoaded', ajustarZoom);
+        window.addEventListener('resize', ajustarZoom);
+    </script>
+</body>
+
+</html>
